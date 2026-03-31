@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AS & Co Law Office — Advocates & Counsellors At Law</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #1A2E42;
+    --blue: #1E4D8C;
+    --blue-light: #2563B0;
+    --silver: #8A9BB0;
+    --silver-light: #C8D4E0;
+    --white: #F8FAFC;
+    --off-white: #EDF2F7;
+    --gold: #B8954A;
+    --gold-light: #D4AA6A;
+    --text-dark: #0D1B2A;
+    --text-mid: #3D5166;
+    --text-light: #6B8099;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 0 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+    background: rgba(13,27,42,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,149,74,0.2);
+    transition: all 0.3s ease;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500;
+    color: var(--silver-light);
+    text-decoration: none; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    letter-spacing: 0.1em !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+  .hero-bg-lines {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(184,149,74,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,149,74,0.06) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-bg-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(30,77,140,0.35) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(184,149,74,0.12);
+    border: 1px solid rgba(184,149,74,0.3);
+    padding: 6px 16px; border-radius: 2px;
+    margin-bottom: 28px;
+  }
+  .hero-badge-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+  .hero-badge span {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-light);
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 4.5vw, 62px);
+    font-weight: 700; line-height: 1.12;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .hero-title .italic { font-style: italic; color: var(--gold); }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-style: italic;
+    color: var(--silver); margin-bottom: 28px; line-height: 1.6;
+  }
+  .hero-desc {
+    font-size: 15px; line-height: 1.7;
+    color: var(--silver-light); margin-bottom: 40px;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 32px; border-radius: 2px;
+    font-weight: 600; font-size: 13px;
+    text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: all 0.2s; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid rgba(200,212,224,0.4); color: var(--silver-light);
+    padding: 14px 32px; border-radius: 2px;
+    font-weight: 500; font-size: 13px;
+    text-decoration: none; letter-spacing: 0.06em;
+    transition: all 0.2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-right { position: relative; }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,149,74,0.15);
+    padding: 28px 24px;
+    transition: all 0.3s;
+  }
+  .stat-card:hover { background: rgba(184,149,74,0.08); border-color: rgba(184,149,74,0.4); }
+  .stat-card:nth-child(1) { border-radius: 4px 0 0 0; }
+  .stat-card:nth-child(2) { border-radius: 0 4px 0 0; }
+  .stat-card:nth-child(3) { border-radius: 0 0 0 4px; }
+  .stat-card:nth-child(4) { border-radius: 0 0 4px 0; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 700;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label { font-size: 12px; color: var(--silver); letter-spacing: 0.06em; text-transform: uppercase; }
+  .stat-card p { font-size: 13px; color: var(--silver-light); margin-top: 6px; line-height: 1.4; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 48px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 32px; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 700; color: var(--text-dark);
+    line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-title.light { color: var(--white); }
+  .section-desc { font-size: 16px; color: var(--text-mid); line-height: 1.7; max-width: 560px; }
+  .section-desc.light { color: var(--silver-light); }
+
+  /* ── VISI MISI ── */
+  #visi-misi { background: var(--off-white); }
+  .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; }
+  .vm-card {
+    background: var(--white);
+    border-radius: 4px;
+    padding: 40px;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 2px 20px rgba(13,27,42,0.06);
+  }
+  .vm-card-icon {
+    width: 48px; height: 48px;
+    background: rgba(184,149,74,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px; font-size: 22px;
+  }
+  .vm-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700;
+    color: var(--text-dark); margin-bottom: 16px;
+  }
+  .vm-card .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-style: italic;
+    color: var(--blue); line-height: 1.6;
+    border-left: 3px solid var(--gold);
+    padding-left: 16px; margin-bottom: 16px;
+  }
+  .vm-card ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .vm-card ul li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--text-mid); line-height: 1.6;
+  }
+  .vm-card ul li::before {
+    content: '▸'; color: var(--gold); font-size: 12px; margin-top: 2px; flex-shrink: 0;
+  }
+
+  /* ── LAYANAN ── */
+  #layanan { background: var(--navy); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
+  .services-tabs { display: flex; gap: 4px; margin-bottom: 40px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 10px 20px; border-radius: 2px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; border: 1px solid rgba(184,149,74,0.2);
+    background: transparent; color: var(--silver); transition: all 0.2s;
+  }
+  .tab-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .tab-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold-light); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(184,149,74,0.12);
+    padding: 32px 28px;
+    transition: all 0.3s; cursor: default;
+  }
+  .service-card:hover {
+    background: rgba(184,149,74,0.08);
+    border-color: rgba(184,149,74,0.4);
+    transform: translateY(-2px);
+  }
+  .service-card .svc-icon { font-size: 28px; margin-bottom: 16px; }
+  .service-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 600;
+    color: var(--white); margin-bottom: 10px; line-height: 1.3;
+  }
+  .service-card p { font-size: 13px; color: var(--silver); line-height: 1.6; }
+
+  /* ── TIM ── */
+  #tim { background: var(--white); }
+  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 56px; }
+  .team-card {
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .team-card:hover { transform: translateY(-4px); }
+  .team-avatar {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    border: 3px solid var(--gold);
+    background: var(--off-white);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700;
+    color: var(--navy);
+    overflow: hidden;
+  }
+  .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .team-role {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .team-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--text-dark); margin-bottom: 8px; line-height: 1.3;
+  }
+  .team-desc { font-size: 12px; color: var(--text-light); line-height: 1.6; }
+
+  /* ── KLIEN ── */
+  #klien { background: var(--off-white); }
+  .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
+  .client-card {
+    background: var(--white);
+    border: 1px solid var(--silver-light);
+    padding: 20px 16px; border-radius: 4px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 13px; font-weight: 500; color: var(--text-mid);
+    transition: all 0.2s;
+  }
+  .client-card:hover { border-color: var(--gold); color: var(--text-dark); }
+  .client-icon { font-size: 22px; flex-shrink: 0; }
+
+  /* ── KONTAK ── */
+  #kontak { background: var(--navy); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 28px; margin-top: 40px; }
+  .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+  .contact-item-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: rgba(184,149,74,0.12);
+    border: 1px solid rgba(184,149,74,0.3);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .contact-item-text .label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
+  }
+  .contact-item-text p { font-size: 14px; color: var(--silver-light); line-height: 1.5; }
+  .contact-form { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--silver); }
+  .form-group input, .form-group textarea, .form-group select {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,212,224,0.15);
+    border-radius: 2px; padding: 12px 16px;
+    color: var(--white); font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none; transition: border-color 0.2s;
+    resize: none;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--silver); }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+  .form-group select option { background: var(--navy); }
+  .form-group textarea { min-height: 120px; }
+  .btn-submit {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 32px; border-radius: 2px;
+    font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all 0.2s;
+    align-self: flex-start;
+  }
+  .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #070F18;
+    padding: 48px;
+    border-top: 1px solid rgba(184,149,74,0.2);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-logo small {
+    display: block; font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 400; color: var(--silver);
+    margin-top: 4px; letter-spacing: 0.06em;
+  }
+  .footer-copy { font-size: 12px; color: var(--silver); text-align: right; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .footer-social a:hover { background: rgba(184,149,74,0.2); border-color: var(--gold); }
+
+  /* ── DIVIDER ── */
+  .gold-divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 20px 0;
+  }
+
+  /* ── LANG TOGGLE ── */
+  .lang-toggle {
+    display: flex; gap: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px; overflow: hidden;
+  }
+  .lang-btn {
+    padding: 6px 12px; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; border: none;
+    background: transparent; color: var(--silver);
+    transition: all 0.2s;
+  }
+  .lang-btn.active { background: var(--gold); color: var(--navy); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── LANGUAGE CONTENT ── */
+  [data-en], [data-id] { display: none; }
+  body.lang-id [data-id] { display: block; }
+  body.lang-en [data-en] { display: block; }
+  body.lang-id span[data-id], body.lang-en span[data-en] { display: inline; }
+  body.lang-id p[data-id], body.lang-en p[data-en] { display: block; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    #hero { padding: 100px 24px 60px; }
+    .hero-content { grid-template-columns: 1fr; gap: 48px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .clients-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .vm-grid { grid-template-columns: 1fr; }
+    footer { padding: 36px 24px; }
+  }
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .clients-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="lang-id">
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">AS<span>&</span>CO</div>
+  <ul class="nav-links">
+    <li><a href="#visi-misi" data-id>Tentang</a><a href="#visi-misi" data-en>About</a></li>
+    <li><a href="#layanan" data-id>Layanan</a><a href="#layanan" data-en>Services</a></li>
+    <li><a href="#tim" data-id>Tim</a><a href="#tim" data-en>Team</a></li>
+    <li><a href="#klien" data-id>Klien</a><a href="#klien" data-en>Clients</a></li>
+    <li><a href="#kontak" class="nav-cta" data-id>Hubungi Kami</a><a href="#kontak" class="nav-cta" data-en>Contact Us</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('id')">ID</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Advocates & Counsellors At Law</span>
+      </div>
+      <h1 class="hero-title" data-id>
+        Keadilan adalah<br><em class="italic">Hak Anda.</em><br>Kami Hadir Untuknya.
+      </h1>
+      <h1 class="hero-title" data-en>
+        Justice is<br><em class="italic">Your Right.</em><br>We're Here For It.
+      </h1>
+      <p class="hero-subtitle" data-id>"Mengantarkan para pencari keadilan untuk meraih Kepastian, Keadilan, dan Kemanfaatan Hukum"</p>
+      <p class="hero-subtitle" data-en>"Guiding seekers of justice toward legal certainty, fairness, and meaningful outcomes"</p>
+      <p class="hero-desc" data-id>AS & Co Law Office adalah kantor hukum berlisensi yang siap menangani berbagai perkara hukum di seluruh wilayah Indonesia — dari Bandung hingga nasional.</p>
+      <p class="hero-desc" data-en>AS & Co Law Office is a licensed law firm ready to handle various legal matters throughout Indonesia — from Bandung to nationwide coverage.</p>
+      <div class="hero-btns">
+        <a href="#kontak" class="btn-primary" data-id>Konsultasi Gratis</a>
+        <a href="#kontak" class="btn-primary" data-en>Free Consultation</a>
+        <a href="#layanan" class="btn-outline" data-id>Lihat Layanan</a>
+        <a href="#layanan" class="btn-outline" data-en>Our Services</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-num">25+</div>
+          <div class="stat-label" data-id>Tahun Pengalaman</div>
+          <div class="stat-label" data-en>Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">10+</div>
+          <div class="stat-label" data-id>Bidang Hukum</div>
+          <div class="stat-label" data-en>Legal Practice Areas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label" data-id>Berlisensi PERADI</div>
+          <div class="stat-label" data-en>PERADI Licensed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">∞</div>
+          <div class="stat-label" data-id>Komitmen Kami</div>
+          <div class="stat-label" data-en>Our Commitment</div>
+          <p data-id>Upaya maksimal untuk setiap klien</p>
+          <p data-en>Maximum effort for every client</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISI MISI -->
+<section id="visi-misi">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label" data-id>Tentang Kami</div>
+      <div class="section-label" data-en>About Us</div>
+      <h2 class="section-title" data-id>Filosofi & Komitmen</h2>
+      <h2 class="section-title" data-en>Philosophy & Commitment</h2>
+    </div>
+    <div class="vm-grid fade-up">
+      <div class="vm-card">
+        <div class="vm-card-icon">⚖️</div>
+        <h3 data-id>Visi</h3>
+        <h3 data-en>Vision</h3>
+        <div class="gold-divider"></div>
+        <p class="quote" data-id>"Mengantarkan para pencari keadilan untuk meraih Kepastian, Keadilan, dan Kemanfaatan Hukum"</p>
+        <p class="quote" data-en>"To guide seekers of justice toward legal certainty, fairness, and meaningful legal outcomes"</p>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.6" data-id>AS & Co terdiri dari pengacara berlisensi yang dapat menangani kasus hukum di seluruh wilayah Indonesia, dengan jejaring yang dikenal luas di berbagai institusi hukum.</p>
+        <p style="font-size:14px;color:var(--text-mid);line-height:1.6" data-en>AS & Co consists of licensed lawyers who can handle legal cases throughout Indonesia, with an extensive network recognized across various legal institutions.</p>
+      </div>
+      <div class="vm-card">
+        <div class="vm-card-icon">🎯</div>
+        <h3 data-id>Misi</h3>
+        <h3 data-en>Mission</h3>
+        <div class="gold-divider"></div>
+        <ul>
+          <li data-id>Memahami secara detail permasalahan hukum para pencari keadilan</li>
+          <li data-en>Understanding in detail the legal issues of those seeking justice</li>
+          <li data-id>Memberikan pendapat hukum secara runut dan logis</li>
+          <li data-en>Providing logical and systematic legal opinions</li>
+          <li data-id>Menjalankan kuasa dengan penuh tanggung jawab</li>
+          <li data-en>Executing mandates with full responsibility</li>
+          <li data-id>Memberikan garansi upaya maksimal demi mengantarkan klien meraih Kepastian, Keadilan, dan Kemanfaatan Hukum</li>
+          <li data-en>Guaranteeing maximum effort to help clients achieve legal certainty, justice, and benefit</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section id="layanan">
+  <div class="container">
+    <div class="services-header fade-up">
+      <div>
+        <div class="section-label" data-id style="color:var(--gold)">Ruang Lingkup</div>
+        <div class="section-label" data-en style="color:var(--gold)">Practice Areas</div>
+        <h2 class="section-title light" data-id>Jasa Hukum Kami</h2>
+        <h2 class="section-title light" data-en>Our Legal Services</h2>
+      </div>
+      <p class="section-desc light" data-id>Mencakup layanan Litigasi dan Non-Litigasi di seluruh wilayah Indonesia</p>
+      <p class="section-desc light" data-en>Covering Litigation and Non-Litigation services throughout Indonesia</p>
+    </div>
+    <div class="services-tabs fade-up">
+      <button class="tab-btn active" onclick="filterServices('all', this)" data-id>Semua</button>
+      <button class="tab-btn active" onclick="filterServices('all', this)" data-en>All</button>
+      <button class="tab-btn" onclick="filterServices('litigasi', this)" data-id>Litigasi</button>
+      <button class="tab-btn" onclick="filterServices('litigasi', this)" data-en>Litigation</button>
+      <button class="tab-btn" onclick="filterServices('non', this)" data-id>Non-Litigasi</button>
+      <button class="tab-btn" onclick="filterServices('non', this)" data-en>Non-Litigation</button>
+    </div>
+    <div class="services-grid fade-up" id="services-grid">
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">🏛️</div>
+        <h4 data-id>Hukum Pidana</h4><h4 data-en>Criminal Law</h4>
+        <p data-id>Penasihat hukum dalam persidangan pidana umum & khusus (Tipikor)</p>
+        <p data-en>Legal counsel in general & special criminal proceedings (Corruption)</p>
+      </div>
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">📋</div>
+        <h4 data-id>Hukum Perdata</h4><h4 data-en>Civil Law</h4>
+        <p data-id>Kuasa hukum dalam gugatan wanprestasi & perbuatan melawan hukum</p>
+        <p data-en>Legal counsel in breach of contract & unlawful act claims</p>
+      </div>
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">👷</div>
+        <h4 data-id>Hukum Ketenagakerjaan</h4><h4 data-en>Labor Law</h4>
+        <p data-id>Layanan hukum terkait hubungan industrial & ketenagakerjaan</p>
+        <p data-en>Legal services related to industrial relations & employment</p>
+      </div>
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">👨‍👩‍👧</div>
+        <h4 data-id>Hukum Keluarga & Waris</h4><h4 data-en>Family & Inheritance Law</h4>
+        <p data-id>Gugatan perceraian, talak, pembagian harta waris</p>
+        <p data-en>Divorce proceedings, custody, and inheritance distribution</p>
+      </div>
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">💡</div>
+        <h4 data-id>Hak Kekayaan Intelektual</h4><h4 data-en>Intellectual Property</h4>
+        <p data-id>Hak merek, hak cipta, hak paten & rahasia dagang</p>
+        <p data-en>Trademark, copyright, patent & trade secret rights</p>
+      </div>
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">🏢</div>
+        <h4 data-id>Hukum Perusahaan</h4><h4 data-en>Corporate Law</h4>
+        <p data-id>Kuasa hukum dalam sengketa perusahaan & korporasi</p>
+        <p data-en>Legal counsel in corporate disputes & business matters</p>
+      </div>
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">🏛️</div>
+        <h4 data-id>Hukum Tata Usaha Negara</h4><h4 data-en>Administrative Law</h4>
+        <p data-id>Gugatan berkaitan hukum tata usaha negara & kebijakan publik</p>
+        <p data-en>Claims relating to administrative law & public policy</p>
+      </div>
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">💰</div>
+        <h4 data-id>Hukum Pajak</h4><h4 data-en>Tax Law</h4>
+        <p data-id>Pelayanan jasa terkait hukum pajak di pengadilan & mediasi</p>
+        <p data-en>Legal services related to tax law in courts & mediation</p>
+      </div>
+      <div class="service-card" data-cat="litigasi">
+        <div class="svc-icon">🔍</div>
+        <h4 data-id>Pendampingan Pemeriksaan</h4><h4 data-en>Investigation Assistance</h4>
+        <p data-id>Pendampingan di Kepolisian, Kejaksaan, dan institusi lainnya</p>
+        <p data-en>Assistance at Police, Prosecutor, and other institutions</p>
+      </div>
+      <div class="service-card" data-cat="non">
+        <div class="svc-icon">💬</div>
+        <h4 data-id>Konsultasi Hukum</h4><h4 data-en>Legal Consultation</h4>
+        <p data-id>Layanan konsultasi hukum komprehensif untuk individu & bisnis</p>
+        <p data-en>Comprehensive legal consultation for individuals & businesses</p>
+      </div>
+      <div class="service-card" data-cat="non">
+        <div class="svc-icon">📄</div>
+        <h4 data-id>Rancang & Review Kontrak</h4><h4 data-en>Contract Drafting & Review</h4>
+        <p data-id>Penyusunan dan review kontrak sesuai kebutuhan klien</p>
+        <p data-en>Contract drafting and review tailored to client needs</p>
+      </div>
+      <div class="service-card" data-cat="non">
+        <div class="svc-icon">🤝</div>
+        <h4 data-id>Somasi & Mediasi</h4><h4 data-en>Summons & Mediation</h4>
+        <p data-id>Somasi dan mediasi di luar pengadilan untuk penyelesaian sengketa</p>
+        <p data-en>Out-of-court summons & mediation for dispute resolution</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIM -->
+<section id="tim">
+  <div class="container">
+    <div class="fade-up" style="text-align:center">
+      <div class="section-label" data-id style="justify-content:center">Tim Profesional</div>
+      <div class="section-label" data-en style="justify-content:center">Professional Team</div>
+      <h2 class="section-title" data-id>Para Ahli Hukum Kami</h2>
+      <h2 class="section-title" data-en>Our Legal Experts</h2>
+      <p class="section-desc" style="margin:0 auto;text-align:center" data-id>Didukung oleh advokat berpengalaman dan berlisensi PERADI, siap membela kepentingan Anda</p>
+      <p class="section-desc" style="margin:0 auto;text-align:center" data-en>Supported by experienced PERADI-licensed advocates, ready to defend your interests</p>
+    </div>
+    <div class="team-grid fade-up">
+      <div class="team-card">
+        <div class="team-avatar">A</div>
+        <div class="team-role">Founder</div>
+        <div class="team-name">Andreas D.L.A. Situmeang, S.H., C.NSP.</div>
+        <p class="team-desc" data-id>Anggota aktif PERADI sejak 2018, Certified Negosiator, pengajar Alternative Dispute Resolution PERADI</p>
+        <p class="team-desc" data-en>Active PERADI member since 2018, Certified Negotiator, ADR instructor at PERADI</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">D</div>
+        <div class="team-role">Co-Founder</div>
+        <div class="team-name">Dahman Sinaga, S.H., C.NSP.</div>
+        <p class="team-desc" data-id>Anggota aktif PERADI sejak 2016, pernah menjabat Plt. Ketua PERADI termuda, pengajar Hukum Acara TUN</p>
+        <p class="team-desc" data-en>Active PERADI member since 2016, former youngest Acting Chairman of PERADI</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">B</div>
+        <div class="team-role">Senior Associate</div>
+        <div class="team-name">Bennovel Situmeang, S.H.</div>
+        <p class="team-desc" data-id>Advokat sejak 1998, Wakil Ketua KADIN Kota Bandung, Majelis BPSK periode 2002–2012</p>
+        <p class="team-desc" data-en>Advocate since 1998, Deputy Chair of KADIN Bandung, BPSK Arbitrator 2002–2012</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">AP</div>
+        <div class="team-role">Junior Associate</div>
+        <div class="team-name">Agnes Priscilla B.N.H. Situmeang, S.H.</div>
+        <p class="team-desc" data-id>Advokat muda yang energik dan berdedikasi dalam memberikan layanan hukum terbaik</p>
+        <p class="team-desc" data-en>A dynamic young advocate dedicated to providing the best legal services</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KLIEN -->
+<section id="klien">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label" data-id>Kepercayaan Klien</div>
+      <div class="section-label" data-en>Client Trust</div>
+      <h2 class="section-title" data-id>Klien Kami</h2>
+      <h2 class="section-title" data-en>Our Clients</h2>
+      <p class="section-desc" data-id>Dipercaya oleh perorangan, yayasan, perusahaan, dan badan hukum lainnya</p>
+      <p class="section-desc" data-en>Trusted by individuals, foundations, corporations, and other legal entities</p>
+    </div>
+    <div class="clients-grid fade-up">
+      <div class="client-card"><div class="client-icon">🏦</div>PT. Adira Multifinance</div>
+      <div class="client-card"><div class="client-icon">🏢</div>PT. Ethica Megah Madani</div>
+      <div class="client-card"><div class="client-icon">💡</div>PT. Andalan Kreatif Utama</div>
+      <div class="client-card"><div class="client-icon">🏫</div>Yayasan Gedung Wanita Bandung</div>
+      <div class="client-card"><div class="client-icon">📚</div>KKMI Jawa Barat</div>
+      <div class="client-card"><div class="client-icon">🏗️</div>CV. Candi Sejahtera</div>
+      <div class="client-card"><div class="client-icon">⚙️</div>CV. Steffa Abadi</div>
+      <div class="client-card"><div class="client-icon">🏛️</div>Bpk. Ade Ginanjar (Anggota DPR RI)</div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="fade-up">
+          <div class="section-label" data-id style="color:var(--gold)">Hubungi Kami</div>
+          <div class="section-label" data-en style="color:var(--gold)">Contact Us</div>
+          <h2 class="section-title light" data-id>Konsultasikan<br>Masalah Hukum Anda</h2>
+          <h2 class="section-title light" data-en>Consult Your<br>Legal Matter With Us</h2>
+          <p class="section-desc light" data-id>Kami siap mendengarkan dan memberikan solusi hukum terbaik untuk Anda. Konsultasi pertama gratis.</p>
+          <p class="section-desc light" data-en>We're ready to listen and provide the best legal solutions for you. First consultation is free.</p>
+        </div>
+        <div class="contact-info fade-up">
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <div class="label" data-id>Telepon</div>
+              <div class="label" data-en>Phone</div>
+              <p>0856-2463-7339</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-text">
+              <div class="label">Email</div>
+              <p>Andreassitumeangandco@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <div class="label" data-id>Alamat</div>
+              <div class="label" data-en>Address</div>
+              <p>Jl. Talaga Bodas No. 31,<br>Kota Bandung</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📱</div>
+            <div class="contact-item-text">
+              <div class="label">Instagram</div>
+              <p>@as.co_law</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div style="margin-bottom:12px">
+          <div class="section-label" data-id style="color:var(--gold)">Kirim Pesan</div>
+          <div class="section-label" data-en style="color:var(--gold)">Send Message</div>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-id>Nama Lengkap</label>
+              <label data-en>Full Name</label>
+              <input type="text" placeholder="Andreas Situmeang" required>
+            </div>
+            <div class="form-group">
+              <label data-id>Nomor Telepon</label>
+              <label data-en>Phone Number</label>
+              <input type="tel" placeholder="0856-xxxx-xxxx">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="email@anda.com" required>
+          </div>
+          <div class="form-group">
+            <label data-id>Jenis Layanan</label>
+            <label data-en>Service Type</label>
+            <select>
+              <option value="" data-id>-- Pilih Layanan --</option>
+              <option value="" data-en>-- Select Service --</option>
+              <option data-id>Hukum Pidana</option>
+              <option data-id>Hukum Perdata</option>
+              <option data-id>Hukum Ketenagakerjaan</option>
+              <option data-id>Hukum Keluarga/Waris</option>
+              <option data-id>Hak Kekayaan Intelektual</option>
+              <option data-id>Konsultasi Hukum</option>
+              <option data-id>Lainnya</option>
+              <option data-en>Criminal Law</option>
+              <option data-en>Civil Law</option>
+              <option data-en>Labor Law</option>
+              <option data-en>Family / Inheritance Law</option>
+              <option data-en>Intellectual Property</option>
+              <option data-en>Legal Consultation</option>
+              <option data-en>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-id>Deskripsi Singkat Masalah</label>
+            <label data-en>Brief Description of Issue</label>
+            <textarea placeholder="Ceritakan masalah hukum Anda secara singkat..." data-id></textarea>
+            <textarea placeholder="Briefly describe your legal issue..." data-en></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-id>Kirim Pesan →</button>
+          <button type="submit" class="btn-submit" data-en>Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      AS<span>&</span>CO
+      <small>Advocates & Counsellors At Law</small>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/as.co_law" title="Instagram">📱</a>
+      <a href="mailto:Andreassitumeangandco@gmail.com" title="Email">✉️</a>
+      <a href="tel:08562463-7339" title="Telepon">📞</a>
+    </div>
+    <div class="footer-copy">
+      <p data-id>© 2025 AS & Co Law Office. Seluruh hak dilindungi.</p>
+      <p data-en>© 2025 AS & Co Law Office. All rights reserved.</p>
+      <p style="margin-top:4px;color:var(--text-light);font-size:11px">Jl. Talaga Bodas No. 31, Kota Bandung</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Language toggle
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // Service filter
+  function filterServices(cat, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.service-card').forEach(card => {
+      if (cat === 'all') {
+        card.style.display = '';
+      } else {
+        card.style.display = card.dataset.cat === cat ? '' : 'none';
+      }
+    });
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit:not([style*="none"])');
+    const orig = btn.textContent;
+    btn.textContent = '✓ Terkirim!';
+    btn.style.background = '#2ECC71';
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // Smooth nav highlight
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.height = '60px';
+    } else {
+      nav.style.height = '72px';
+    }
+  });
+</script>
+</body>
+</html>
